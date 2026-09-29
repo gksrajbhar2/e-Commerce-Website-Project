@@ -1,0 +1,145 @@
+/* =====================================================================
+   CircuitHub Admin — clean, light back-office panel. The storefront is
+   dark/flashy for browsing; the admin panel stays light and calm since
+   it's a working tool, not a showcase — same brand colors (navy + blue),
+   different balance. Variable/class names kept identical to before.
+   ===================================================================== */
+
+:root {
+  --admin-bg: #F4F6FA;
+  --admin-surface: #FFFFFF;
+  --admin-ink: #0F172A;
+  --admin-ink-soft: #64748B;
+  --admin-border: #E2E8F0;
+  --admin-accent: #2563EB;
+  --admin-accent-soft: #DBEAFE;
+  --admin-danger: #DC2626;
+  --admin-warn: #D97706;
+}
+
+* { box-sizing: border-box; }
+
+body.admin {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--admin-bg);
+  color: var(--admin-ink);
+  display: flex;
+  min-height: 100vh;
+}
+
+body.admin .admin-sidebar {
+  width: 232px; flex-shrink: 0; background: #0B1220; color: #AAB6CC;
+  padding: 22px 16px; display: flex; flex-direction: column; gap: 4px;
+  position: sticky; top: 0; height: 100vh; align-self: flex-start;
+}
+body.admin .admin-sidebar .brand,
+body.admin .auth-brand { color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+body.admin .admin-sidebar .brand { font-size: 1.15rem; padding: 0 10px 20px; }
+body.admin .admin-sidebar .brand span,
+body.admin .auth-brand span { color: #FF7A29; }
+body.admin .admin-sidebar .brand small,
+body.admin .auth-brand small { margin-left: 8px; font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; color: #93B4F5; background: rgba(59,130,246,0.16); padding: 2px 8px; border-radius: 999px; vertical-align: middle; letter-spacing: 0; }
+body.admin .admin-sidebar a { display: flex; align-items: center; gap: 10px; color: #AAB6CC; text-decoration: none; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; }
+body.admin .admin-sidebar a svg { width: 18px; height: 18px; flex-shrink: 0; }
+body.admin .admin-sidebar a:hover { background: rgba(255,255,255,0.06); color: #fff; }
+body.admin .admin-sidebar a.active { background: var(--admin-accent); color: #fff; }
+body.admin .admin-sidebar .divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 14px 0; }
+
+body.admin .admin-main { flex: 1; min-width: 0; }
+body.admin .admin-topbar { background: var(--admin-surface); border-bottom: 1px solid var(--admin-border); padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
+body.admin .admin-topbar h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin: 0; }
+body.admin .admin-user { font-size: 0.85rem; color: var(--admin-ink-soft); }
+body.admin .admin-card .card-head h2 { font-family: 'Space Grotesk', sans-serif; }
+body.admin .admin-content { padding: 28px; }
+
+body.admin .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-bottom: 28px; }
+body.admin .stat-card { background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 12px; padding: 20px; }
+body.admin .stat-card .label { font-size: 0.8rem; color: var(--admin-ink-soft); font-weight: 600; }
+body.admin .stat-card .value { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 700; margin-top: 6px; }
+
+body.admin .admin-card { background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+body.admin .admin-card .card-head { padding: 16px 20px; border-bottom: 1px solid var(--admin-border); display: flex; align-items: center; justify-content: space-between; }
+body.admin .admin-card .card-head h2 { margin: 0; font-size: 1.05rem; }
+body.admin .admin-card .card-body { padding: 20px; }
+
+body.admin table.admin-table { width: 100%; border-collapse: collapse; }
+body.admin table.admin-table th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--admin-ink-soft); padding: 12px 20px; border-bottom: 1px solid var(--admin-border); background: #F8FAFC; }
+body.admin table.admin-table td { padding: 12px 20px; border-bottom: 1px solid var(--admin-border); font-size: 0.9rem; vertical-align: middle; }
+body.admin table.admin-table tr:last-child td { border-bottom: none; }
+body.admin table.admin-table img.thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 8px; background: #EEF2F8; }
+
+body.admin .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 8px; border: 1px solid transparent; font-weight: 600; font-size: 0.85rem; cursor: pointer; text-decoration: none; }
+body.admin .btn-primary { background: var(--admin-accent); color: #fff; }
+body.admin .btn-primary:hover { opacity: 0.92; }
+body.admin .btn-outline { background: #fff; border-color: var(--admin-border); color: var(--admin-ink); }
+body.admin .btn-outline:hover { border-color: var(--admin-accent); color: var(--admin-accent); }
+body.admin .btn-danger { background: var(--admin-danger); color: #fff; }
+body.admin .btn-danger:hover { opacity: 0.9; }
+body.admin .btn-sm { padding: 6px 12px; font-size: 0.78rem; }
+
+body.admin .form-group { margin-bottom: 16px; }
+body.admin .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+body.admin .form-group input, body.admin .form-group select, body.admin .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--admin-border); border-radius: 8px; font-size: 0.9rem; font-family: inherit; background: #fff; color: var(--admin-ink); }
+body.admin .form-group input:focus, body.admin .form-group select:focus, body.admin .form-group textarea:focus { outline: 2px solid var(--admin-accent); outline-offset: 1px; }
+body.admin .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+body.admin .status-badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: capitalize; }
+body.admin .status-pending { background: #FEF3C7; color: var(--admin-warn); }
+body.admin .status-paid, body.admin .status-completed, body.admin .status-processing { background: #DCFCE7; color: #16A34A; }
+body.admin .status-failed, body.admin .status-cancelled { background: #FEE2E2; color: var(--admin-danger); }
+body.admin .status-shipped { background: var(--admin-accent-soft); color: var(--admin-accent); }
+
+body.admin .alert { padding: 12px 16px; border-radius: 8px; font-size: 0.88rem; margin-bottom: 18px; }
+body.admin .alert-success { background: #DCFCE7; color: #16A34A; }
+body.admin .alert-error { background: #FEE2E2; color: var(--admin-danger); }
+
+body.admin.admin-auth {
+  display: block; min-height: 100vh; background-color: #0B1220;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+body.admin .admin-login-wrap { max-width: 400px; margin: 0 auto; padding: 88px 20px 40px; }
+body.admin .auth-brand { font-size: 1.5rem; text-align: center; margin-bottom: 24px; }
+body.admin .admin-login-card { background: #fff; border: 1px solid var(--admin-border); border-radius: 14px; padding: 32px; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+body.admin .admin-login-card .hint { font-size: 0.8rem; color: var(--admin-ink-soft); margin: 16px 0 0; }
+body.admin .admin-login-card h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin: 0 0 4px; }
+body.admin .admin-login-card p.sub { color: var(--admin-ink-soft); font-size: 0.88rem; margin-bottom: 22px; }
+
+/* ---- Order status filter tabs ---- */
+body.admin .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+body.admin .filter-tab { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--admin-surface); border: 1px solid var(--admin-border); color: var(--admin-ink-soft); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+body.admin .filter-tab:hover { border-color: var(--admin-accent); color: var(--admin-accent); }
+body.admin .filter-tab .count { background: #EEF2F8; color: var(--admin-ink-soft); border-radius: 999px; padding: 1px 8px; font-size: 0.72rem; }
+body.admin .filter-tab.active { background: var(--admin-accent); border-color: var(--admin-accent); color: #fff; }
+body.admin .filter-tab.active .count { background: rgba(255,255,255,0.22); color: #fff; }
+
+body.admin .badge-pair { display: flex; gap: 16px; align-items: center; font-size: 0.82rem; color: var(--admin-ink-soft); flex-wrap: wrap; }
+body.admin .form-note { font-size: 0.82rem; color: var(--admin-ink-soft); margin: 12px 0 0; }
+body.admin table.admin-table a { color: var(--admin-accent); font-weight: 600; text-decoration: none; }
+body.admin table.admin-table a.btn { font-weight: 600; }
+body.admin table.admin-table a.btn-outline { color: var(--admin-ink); }
+body.admin .btn-block { width: 100%; justify-content: center; }
+body.admin .alert-info { background: var(--admin-accent-soft); color: #1D4ED8; }
+
+body.admin .empty-row td { text-align: center; padding: 40px 20px; color: var(--admin-ink-soft); }
+
+@media (max-width: 820px) {
+  body.admin { flex-direction: column; }
+  body.admin .admin-sidebar { width: 100%; height: auto; position: static; flex-direction: row; overflow-x: auto; align-items: center; }
+  body.admin .admin-sidebar .brand { padding: 0 12px 0 0; }
+  body.admin .admin-sidebar .divider { display: none; }
+  body.admin .form-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ---- eSewa check page ---- */
+body.admin .check-list { padding: 4px 24px 8px; }
+body.admin .check-row { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--admin-border); }
+body.admin .check-row:first-child { border-top: none; }
+body.admin .check-row .status-badge { min-width: 52px; text-align: center; margin-top: 2px; }
+body.admin .check-row p { margin: 4px 0 0; color: var(--admin-ink-soft); font-size: 0.85rem; line-height: 1.5; }
+body.admin table.kv th { width: 150px; text-align: left; font-weight: 600; color: var(--admin-ink-soft); }
+body.admin table.kv code, body.admin .check-row code, body.admin .form-note code { background: #EEF2F8; border-radius: 4px; padding: 1px 6px; font-size: 0.82rem; word-break: break-all; }
+
