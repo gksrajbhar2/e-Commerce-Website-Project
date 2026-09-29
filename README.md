@@ -176,19 +176,7 @@ tells you, with plain-English explanations, whether:
 - your machine can reach eSewa's payment and status servers
 - `BASE_URL` matches the address you opened the site at (same port!)
 
-### If payment "isn't working"
 
-| What you see | What it means | What to do |
-|---|---|---|
-| eSewa says the ID/password is wrong | Wrong sandbox account | Try the other set above (A/B) |
-| eSewa says **"Service is currently unavailable"** after you log in | eSewa's sandbox itself is down (not this site) | Retry later; use **Cash on Delivery** in the meantime |
-| Returned to the site with "Payment didn't go through" | Cancelled, or the reply failed verification | Check `php.exe` window / `error_log` for a line starting `eSewa payment verification failed` — it names the exact reason |
-| Browser can't open the eSewa page at all | No internet, or firewall/antivirus | Use **eSewa check** |
-| Redirected to the wrong address after paying | `BASE_URL` doesn't match your port | Fix `BASE_URL` in `config/esewa.php` |
-| eSewa check reports an **SSL certificate** problem | XAMPP has no CA bundle | Set `ESEWA_VERIFY_SSL` to `false` in `config/esewa.php` for **local testing only** |
-
-An order stays **pending** until eSewa's signed confirmation is verified; it is never
-marked paid because someone visited the success URL.
 
 ### Going live
 
@@ -245,3 +233,6 @@ marked paid because someone visited the success URL.
 - **Payment status follows the order.** For cash-on-delivery orders, marking the order
   *Completed* marks the payment *Paid* (and undoing it reverts to Pending). An eSewa order
   can't move past *Pending* until eSewa has actually confirmed the payment.
+
+
+  IF YOU LOVE THIS PROJECT ,PLEASE HIT STAR AND CLONE TO YOU DEVICE 
